@@ -49,8 +49,8 @@ import locale
 import traceback
 
 # Check Python version
-if sys.version < '3':
-    raise RuntimeError('Pyzo requires Python 3.x to run.')
+#if sys.version < '3':
+#    raise RuntimeError('Pyzo requires Python 3.x to run.')
 
 # Make each OS find platform plugins etc.
 if hasattr(sys, 'frozen') and sys.frozen:
@@ -227,13 +227,15 @@ def saveConfig():
         ssdf.save( os.path.join(appDataDir, "config.ssdf"), config )
 
 
+from pyzo.core import pyzoLogging  # to start logging asap
+from pyzo.core.main import MainWindow
+
 def start():
     """ Run Pyzo.
     """
 
     # Do some imports
-    from pyzo.core import pyzoLogging # to start logging asap
-    from pyzo.core.main import MainWindow
+
 
     # Apply users' preferences w.r.t. date representation etc
     # this is required for e.g. strftime("%c")

@@ -24,6 +24,8 @@ import pyzo
 # Local address to host on. we use yoton's port hash to have an arbitrary port
 ADDRESS = 'localhost:pyzoserver'
 
+def printme(*arg, **kwargs):
+    print(arg, kwargs)
 
 class Server(RequestServer):
     """ Server that listens on a port for commands.
@@ -43,11 +45,11 @@ class Server(RequestServer):
             reply = handle_command(command, arg)
         except Exception as err:
             msg = 'Error handling request %r:\n%s' % (request, str(err))
-            pyzo.callLater(print, msg)
+            pyzo.callLater(printme, msg)
             return msg
         else:
-            pyzo.callLater(print, 'Request:', request)
-            pyzo.callLater(print, 'Reply:', reply)
+            pyzo.callLater(printme, 'Request:', request)
+            pyzo.callLater(printme, 'Reply:', reply)
             return reply
 
 

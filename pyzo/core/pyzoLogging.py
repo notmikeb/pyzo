@@ -45,9 +45,11 @@ class DummyStd:
     def flush(self):
         pass
 
+def printme(*args, **kwargs):
+    pass
 
-original_print = print
-def print(*args, **kwargs):
+original_print = printme
+def printx(*args, **kwargs):
     # Obtain time string
     t = time.localtime()
     preamble = "{:02g}-{:02g}-{:04g} {:02g}:{:02g}:{:02g}: "

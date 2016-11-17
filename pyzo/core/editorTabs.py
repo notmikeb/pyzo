@@ -21,7 +21,7 @@ import pyzo
 from pyzo.core.compactTabWidget import CompactTabWidget
 from pyzo.core.editor import createEditor
 from pyzo.core.baseTextCtrl import normalizePath
-from pyzo.core.pyzoLogging import print
+from pyzo.core.pyzoLogging import printx as print
 from pyzo.core.icons import EditorTabToolButton
 from pyzo import translate
 
@@ -1541,4 +1541,4 @@ class EditorTabs(QtWidgets.QWidget):
         
         # we're good to go closing
         return True
-    
+

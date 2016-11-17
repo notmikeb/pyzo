@@ -14,7 +14,7 @@ function which is also defined here.
 
 import os, sys, time
 import base64
-from queue import Queue, Empty
+from Queue import Queue, Empty
 
 import pyzo
 from pyzo.core.icons import IconArtist
@@ -265,8 +265,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if pyzo.config.state.windowGeometry:
             try:
                 geometry = pyzo.config.state.windowGeometry
-                geometry = base64.decodebytes(geometry.encode('ascii'))
-                self.restoreGeometry(geometry)  
+                #geometry = base64.decodebytes(geometry.encode('ascii'))
+                #self.restoreGeometry(geometry)
             except Exception as err:
                 print('Could not restore window geomerty: ' + str(err))
     
@@ -281,8 +281,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if pyzo.config.state.windowState:
             try:
                 state = pyzo.config.state.windowState
-                state = base64.decodebytes(state.encode('ascii'))
-                self.restoreState(state)
+                #state = base64.decodebytes(state.encode('ascii'))
+                #self.restoreState(state)
             except Exception as err:
                 print('Could not restore window state: ' + str(err))
     
